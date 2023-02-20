@@ -17,4 +17,6 @@
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
+
+    <string name="label_watch_on">Watch on: </string>
 </resources>
