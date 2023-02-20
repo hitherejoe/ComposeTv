@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'co.joebirch.composetv'
+    compileSdkPreview "Tiramisu"
+
+    defaultConfig {
+        applicationId "co.joebirch.composetv"
+        minSdkPreview "Tiramisu"
+        targetSdkPreview "Tiramisu"
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.0"
+    }
+}
+
+dependencies {
+    implementation 'androidx.activity:activity-compose:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation 'androidx.tv:tv-foundation:1.0.0-alpha04'
+    implementation 'androidx.tv:tv-material:1.0.0-alpha04'
+    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation "androidx.compose.foundation:foundation:1.3.1"
+    implementation "androidx.compose.ui:ui:1.3.3"
+    implementation "androidx.compose.material:material:1.3.1"
+}
