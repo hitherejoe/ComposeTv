@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'co.joebirch.composetv'
-    compileSdkPreview "Tiramisu"
+    compileSdk 33
 
     defaultConfig {
         applicationId "co.joebirch.composetv"
-        minSdkPreview "Tiramisu"
-        targetSdkPreview "Tiramisu"
+        minSdk 33
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
