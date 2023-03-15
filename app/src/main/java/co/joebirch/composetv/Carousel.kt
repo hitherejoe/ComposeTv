@@ -6,11 +6,13 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.tv.material3.Carousel
+import androidx.tv.material3.CarouselDefaults
 import androidx.tv.material3.CarouselState
 import androidx.tv.material3.ExperimentalTvMaterial3Api
 import co.joebirch.composetv.DataFactory.makeCarouselItem
@@ -38,6 +40,10 @@ fun HomeCarousel(
         modifier = modifier,
         carouselState = state,
         autoScrollDurationMillis = 3500,
+        carouselIndicator = {
+            CarouselDefaults.IndicatorRow(
+                slideCount = 0,
+                activeSlideIndex = 0)},
         slideCount = items.count(),
         content = { index ->
             val transform = ContentTransform(
@@ -62,4 +68,5 @@ fun HomeCarousel(
             }
         }
     )
+
 }

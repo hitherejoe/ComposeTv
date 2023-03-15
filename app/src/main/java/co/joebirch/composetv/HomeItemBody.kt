@@ -14,20 +14,18 @@ import androidx.compose.ui.unit.sp
 fun HomeItemBody(item: TvItem) {
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.TopCenter
+        contentAlignment = Alignment.BottomStart
     ) {
         Column(
             modifier = Modifier
                 .padding(16.dp)
-                .width(500.dp)
+                .wrapContentWidth()
                 .wrapContentHeight()
-                .padding(16.dp)
-                .background(color= Color.Blue)
+                .background(color= Color.DarkGray)
         ) {
             Text(
-                text = item.title, fontSize = 32.sp, color = Color.White,
+                text = item.title, fontSize = 20.sp, color = Color.White,
             )
-
         }
     }
 }
