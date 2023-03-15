@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 import androidx.tv.material3.ExperimentalTvMaterial3Api
+import androidx.tv.material3.Text
 
 @ExperimentalTvMaterial3Api
 @ExperimentalAnimationApi
