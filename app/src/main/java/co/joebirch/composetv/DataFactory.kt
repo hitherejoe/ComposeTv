@@ -12,7 +12,7 @@ object DataFactory{
     private fun getObjectsArray(): ArrayList<String> {
         val dataParser = DataParser()
         // Indsæt delbart link til SMK Open spilleliste:
-        val listURL = "https://open.smk.dk/shared-list?list=KMS3991,KMSsp882,KMS8157,KMS1489,KMS8317,KMS4965,KKSgb10298&list_title=fdfd"
+        val listURL = "https://open.smk.dk/shared-list?list=KMS1302,KMS4380,KMSsp522,KMS3418,KKS2012-71,KMS3608,KMS894,KMS868,KMS4568,KMS3402&list_title=null"
         return dataParser.getObjectIDs(listURL)
 
     }
