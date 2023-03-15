@@ -22,7 +22,7 @@ fun HomeItemBody(item: TvItem) {
                 .width(500.dp)
                 .wrapContentHeight()
                 .padding(16.dp)
-                .background(color= Color.Blue)
+                .background(color= Color.Green)
         ) {
             Text(
                 text = item.title, fontSize = 32.sp, color = Color.White,
