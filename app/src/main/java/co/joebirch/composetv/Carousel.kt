@@ -29,7 +29,7 @@ fun HomeCarousel(
     var items by remember { mutableStateOf(emptyList<TvItem>()) }
 
     LaunchedEffect(Unit) {
-        items = makeCarouselItem()
+        items = makeCarouselItem("https://open.smk.dk/shared-list?list=KMS1302,KMS4380,KMSsp522,KMS3418,KKS2012-71,KMS3608,KMS894,KMS868,KMS4568,KMS3402&list_title=null")
     }
 
     val state = remember {
