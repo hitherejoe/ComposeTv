@@ -1,5 +1,6 @@
 package co.joebirch.composetv
 
+import android.util.Log
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -25,9 +26,13 @@ fun SetupNavGraph(
             StartButton(navController)
         }
         composable(
-            route = Screen.CarouselScreen.route,
+            route = "carousel_screen/{url}",
+            arguments = listOf(
+                navArgument(name = "url"){
+                type = NavType.StringType
+            })
         ){
-            HomeCarousel()
+            HomeCarousel(it.arguments?.getString("url").toString())
         }
     }
 }
