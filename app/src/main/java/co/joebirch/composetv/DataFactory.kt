@@ -60,6 +60,51 @@ object DataFactory{
         }
     }
 
+    private suspend fun getArtist(objectId: String): String? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val url = URL(objectId)
+                val connection = url.openConnection()
+                connection.connect()
+                val response = connection.getInputStream().bufferedReader().use { it.readText() }
+                val jsonObject = JSONObject(response)
+                jsonObject.getJSONArray("items")
+                    .getJSONObject(0)
+                    .getJSONArray("artist")
+                    .getString(0)
+            } catch (e: IOException) {
+                e.printStackTrace()
+                null
+            } catch (e: JSONException) {
+                e.printStackTrace()
+                null
+            }
+        }
+    }
+
+    private suspend fun getYear(objectId: String): String? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val url = URL(objectId)
+                val connection = url.openConnection()
+                connection.connect()
+                val response = connection.getInputStream().bufferedReader().use { it.readText() }
+                val jsonObject = JSONObject(response)
+                jsonObject.getJSONArray("items")
+                    .getJSONObject(0)
+                    .getJSONArray("production_date")
+                    .getJSONObject(0)
+                    .getString("period")
+            } catch (e: IOException) {
+                e.printStackTrace()
+                null
+            } catch (e: JSONException) {
+                e.printStackTrace()
+                null
+            }
+        }
+    }
+
 
     suspend fun makeCarouselItem(): List<TvItem> = withContext(Dispatchers.IO) {
         val objectIDs = getObjectsArray()
@@ -68,9 +113,11 @@ object DataFactory{
         for (objectId in objectIDs) {
             val title = getTitle(objectId)
             val image = getImage(objectId)
+            val artist = getArtist(objectId)
+            val year = getYear(objectId)
 
-            if (title != null && image != null) {
-                tvItems.add(TvItem(title, image))
+            if (title != null && image != null && year != null && artist!=null) {
+                tvItems.add(TvItem(title, image, artist, year))
             }
         }
 
