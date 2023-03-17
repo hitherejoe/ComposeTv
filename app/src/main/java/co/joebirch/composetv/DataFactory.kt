@@ -9,11 +9,11 @@ import java.io.IOException
 import java.net.URL
 
 object DataFactory{
-    private fun getObjectsArray(): ArrayList<String> {
+    private fun getObjectsArray(favList: String): ArrayList<String> {
         val dataParser = DataParser()
         // Indsæt delbart link til SMK Open spilleliste:
         val listURL = "https://open.smk.dk/shared-list?list=KMS1302,KMS4380,KMSsp522,KMS3418,KKS2012-71,KMS3608,KMS894,KMS868,KMS4568,KMS3402&list_title=null"
-        return dataParser.getObjectIDs(listURL)
+        return dataParser.getObjectIDs(favList)
 
     }
 
@@ -106,8 +106,8 @@ object DataFactory{
     }
 
 
-    suspend fun makeCarouselItem(): List<TvItem> = withContext(Dispatchers.IO) {
-        val objectIDs = getObjectsArray()
+    suspend fun makeCarouselItem(favList: String): List<TvItem> = withContext(Dispatchers.IO) {
+        val objectIDs = getObjectsArray(favList)
         val tvItems = mutableListOf<TvItem>()
 
         for (objectId in objectIDs) {
